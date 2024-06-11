@@ -7,9 +7,9 @@
 
 	// menu registration
 	register_nav_menus( array(
-		'top' => __( 'top', 'hagemans' ),
-		'main' => __( 'main', 'hagemans' ),
-		'footer' => __( 'footer', 'hagemans' ),
+		'top' => __( 'top', 'sv-basetheme' ),
+		'main' => __( 'main', 'sv-basetheme' ),
+		'footer' => __( 'footer', 'sv-basetheme' ),
 	));
 
 
