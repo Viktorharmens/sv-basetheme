@@ -1,0 +1,31 @@
+/* This is using the same setup as styles.css but can be extended with specific styles needed in our backend. */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import-glob "../../blocks/**/*.css";
+@import "tailwindcss/utilities";
+
+.edit-post-visual-editor__post-title-wrapper {
+  @apply bg-gray-50 mt-0 py-16 mb-8 border-b border-dashed !important;
+}
+
+.wp-block-post-title {
+  @apply text-4xl font-bold mb-0 text-gray-600;
+}
+
+/* Set wid of backend blocks */
+.edit-post-visual-editor__post-title-wrapper,
+.block-editor-block-list__layout.is-root-container {
+  > :where(:not(.alignleft):not(.alignright)) {
+    @apply mx-auto max-w-[98%] !important;
+  }
+}
+
+.mce-content-body {
+  @apply max-w-[98%] mx-auto;
+}
+
+.block-editor__container {
+  [data-block-id='employee-header'] img {
+		@apply h-full !important;
+	}
+}
