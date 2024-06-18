@@ -1,16 +1,12 @@
-const glob = require('glob')
-
-/** @type {import('tailwindcss').Config } */
+/** @type {import('tailwindcss').Config } **/
 module.exports = {
     mode: 'jit',
     content: [
         "!./node_modules/**/*",
-        "./blocks/**/*.php",
+        "./blocks/**/*.twig",
         "./assets/**/*.js",
+        "./views/**/*.twig",
     ],
-    purge: [
-      ].concat(glob.sync("./**/*.php")),
-
     theme: {
         container: {
             center: true,

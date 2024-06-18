@@ -1,6 +1,6 @@
 {
-    "name": "acf/gallery",
-    "title": "Gallery",
+    "name": "acf/test",
+    "title": "Test block",
     "description": "A custom test block that uses ACF fields.",
     "style": [ ],
     "category": "formatting",
@@ -8,7 +8,7 @@
     "keywords": ["testimonial", "quote"],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "index.php"
+        "renderTemplate": "blocks/test/index.php"
     },
     "supports": {
         "anchor": true

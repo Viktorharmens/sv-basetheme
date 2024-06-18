@@ -27,13 +27,6 @@ mix.autoload({
 	jquery: ['$', 'window.jQuery']
 });
 
-// Ignore node_modules directory
-// mix.webpackConfig({
-//     watchOptions: {
-//         ignored: /node_modules/
-//     }
-// });
-
 // Watch files
 if (fs.existsSync('browsersync.config.js')) {
 	const config = require('./browsersync.config');

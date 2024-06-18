@@ -1,8 +1,5 @@
 <?php
 
-	get_header();
+$context = Timber::context();
 
-
-	get_footer(); 
-
-?>
+Timber::render('single.twig', $context);

@@ -1,12 +1,5 @@
 <?php
 
-    get_header();
+$context = Timber::context();
 
-    if (have_posts()) : while (have_posts()) : the_post();
-            the_content();
-    endwhile; endif;
-
-    get_footer();
-?>
-	
-
+Timber::render('views/page.twig', $context);

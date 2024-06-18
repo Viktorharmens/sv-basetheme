@@ -1,0 +1,16 @@
+{
+    "name": "acf/gallery",
+    "title": "Gallery block",
+    "description": "A gallery block that uses ACF fields.",
+    "style": [ ],
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["testimonial", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "blocks/gallery/index.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
