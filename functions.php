@@ -12,8 +12,6 @@
     // Initialize Timber.
     Timber\Timber::init();
 
-  
-
     include_once 'functions/functions.php';
     include_once 'functions/acf.php';
     include_once 'functions/cpt.php';

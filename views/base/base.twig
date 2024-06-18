@@ -8,22 +8,22 @@
     </head>
 
     <body>
-	    <header>
-            {% block header %}
-                {% include 'base/header.twig' %}
-            {% endblock %}
-        </header>
-        <main>
+	    
+		{% block header %}
+			{% include 'base/header.twig' %}
+		{% endblock %}
+        
+        <main data-section-id="main" class="wrapper {{wrapper_class}}">
             {% block content %}
             {% endblock %}
         </main>
 
-        <footer>
-            {% block footer %}
-                {% include 'base/footer.twig' %}
-            {% endblock %}
+	
+		{% block footer %}
+			{% include 'base/footer.twig' %}
+		{% endblock %}
 
-			{{ wp_footer() }}
-        </footer>
+		{{ wp_footer() }}
+      
     </body>
 </html>
