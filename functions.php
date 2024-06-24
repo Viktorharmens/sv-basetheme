@@ -18,6 +18,7 @@
     include_once 'functions/posts.php';
     include_once 'functions/init.php';
     include_once 'functions/navigation.php';
+    include_once 'functions/context.php';
 
 
 
@@ -42,6 +43,8 @@
         $twig->addFunction(new \Twig\TwigFunction('wp_footer', 'wp_footer'));
         return $twig;
     });
+
+    add_filter('timber/context', 'add_to_context');
     
 
 

@@ -1,5 +1,8 @@
 <?php
 
+    // Exit if accessed directly
+    if ( ! defined( 'ABSPATH' ) ) exit;
+
 	// Image support
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'bigthumb', 500, 500, true);

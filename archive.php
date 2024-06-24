@@ -1,6 +1,3 @@
-<?php 
-    get_header(); 
-
-
-    get_footer(); 
-?>
+<?php
+$context = Timber::context();
+Timber::render('archive.twig', $context);
