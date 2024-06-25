@@ -83,3 +83,69 @@
 		);
 	}
 	add_filter( 'allowed_block_types_all', 'sv_allowed_block_types', 25, 2 );
+
+	
+	/**
+	 * Disables comments and trackbacks for all post types that support them.
+	 *
+	 * This function retrieves all post types and checks if each post type supports comments and trackbacks.
+	 * If a post type supports comments and trackbacks, the function removes support for both.
+	 *
+	 * @throws None
+	 * @return void
+	 */
+	function disable_comments_post_types_support() {
+		$post_types = get_post_types();
+		foreach ($post_types as $post_type) {
+			if (post_type_supports($post_type, 'comments')) {
+				remove_post_type_support($post_type, 'comments');
+				remove_post_type_support($post_type, 'trackbacks');
+			}
+		}
+	}
+	add_action('admin_init', 'disable_comments_post_types_support');
+
+	/**
+	 * Disables the Comments menu item in the WordPress admin menu.
+	 *
+	 * This function removes the 'Comments' menu item from the WordPress admin menu.
+	 * This is useful when you want to hide the comments section from the admin menu.
+	 *
+	 * @throws None
+	 * @return void
+	 */
+	function disable_comments_admin_menu() {
+		remove_menu_page('edit-comments.php');
+	}
+	add_action('admin_menu', 'disable_comments_admin_menu');
+
+	/**
+	 * Redirects the user from the 'edit-comments.php' page to the admin URL if the current page is 'edit-comments.php'.
+	 *
+	 * @throws None
+	 * @return void
+	 */
+	function disable_comments_admin_menu_redirect() {
+		global $pagenow;
+		if ($pagenow === 'edit-comments.php') {
+			wp_redirect(admin_url());
+			exit;
+		}
+	}
+	add_action('admin_init', 'disable_comments_admin_menu_redirect');
+
+	/**
+	 * Disables the comments menu in the admin bar.
+	 *
+	 * This function checks if the admin bar is showing and if so, it removes the action
+	 * responsible for adding the comments menu to the admin bar.
+	 *
+	 * @throws None
+	 * @return void
+	 */
+	function disable_comments_admin_bar() {
+		if (is_admin_bar_showing()) {
+			remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+		}
+	}
+	add_action('init', 'disable_comments_admin_bar');
