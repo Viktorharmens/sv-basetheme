@@ -24,3 +24,18 @@
 
         return $context;
     }
+
+    add_filter('timber/context', 'global_timber_context');
+
+    /**
+     * Filters global context.
+     *
+     * @param array $context An array of existing context variables.
+     * @return mixed
+     */
+    function global_timber_context($context)
+    {
+        $context['options'] = get_fields('option');
+    
+        return $context;
+    }
