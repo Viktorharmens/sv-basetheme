@@ -37,14 +37,26 @@
     
     add_action('init', 'sv_register_acf_blocks');
 
+    add_filter('timber/context', 'add_to_context');
+
     add_filter('timber/twig', function($twig) {
-        // Maak wp_head beschikbaar in Twig templates
-        $twig->addFunction(new \Twig\TwigFunction('wp_head', 'wp_head'));
-        $twig->addFunction(new \Twig\TwigFunction('wp_footer', 'wp_footer'));
+        // Voeg de WordPress wp_head functie toe aan Twig
+        $twig->addFunction(new \Twig\TwigFunction('wp_head', function() {
+            ob_start();
+            wp_head();  // Zorg dat wp_head wordt aangeroepen en de output wordt teruggegeven
+            return ob_get_clean();
+        }));
+    
+        // Voeg wp_footer toe voor hetzelfde effect in de footer
+        $twig->addFunction(new \Twig\TwigFunction('wp_footer', function() {
+            ob_start();
+            wp_footer();
+            return ob_get_clean();
+        }));
+    
         return $twig;
     });
 
-    add_filter('timber/context', 'add_to_context');
     
 
 
