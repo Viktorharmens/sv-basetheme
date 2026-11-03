@@ -1,0 +1,25 @@
+{% set image = get_image(fields.image) %}
+
+<section {{ block.anchor ? 'id="' ~ block.anchor ~ '"' }} class="container grid items-center gap-10 py-16 md:grid-cols-2">
+	<div class="flex flex-col gap-4 {{ fields.image_position == 'left' ? 'md:order-2' }}">
+		{% if fields.title %}
+			<h2 class="text-3xl font-bold md:text-4xl">{{ fields.title }}</h2>
+		{% endif %}
+		<div class="prose-content">{{ fields.text }}</div>
+	</div>
+
+	{% if image %}
+		<img
+			class="w-full rounded-lg"
+			src="{{ image.src('large') }}"
+			srcset="{{ image.srcset }}"
+			sizes="(min-width: 768px) 50vw, 100vw"
+			width="{{ image.width }}"
+			height="{{ image.height }}"
+			alt="{{ image.alt }}"
+			loading="lazy"
+		>
+	{% elseif is_preview %}
+		<div class="flex aspect-[4/3] items-center justify-center rounded-lg bg-surface text-muted">{{ __('Kies een afbeelding', 'sv-basetheme') }}</div>
+	{% endif %}
+</section>

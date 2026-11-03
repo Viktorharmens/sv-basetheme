@@ -1,17 +1,29 @@
-{% extends 'base/base.twig' %}
+{% extends 'base.twig' %}
 
 {% block content %}
+	<article class="container py-16">
+		<header class="mb-8 flex flex-col gap-3">
+			{% if function('function_exists', 'yoast_breadcrumb') %}
+				{{ function('yoast_breadcrumb', '<nav class="text-sm text-muted" aria-label="' ~ __('Kruimelpad', 'sv-basetheme') ~ '">', '</nav>', false) }}
+			{% endif %}
+			<h1 class="text-4xl font-bold md:text-6xl">{{ post.title }}</h1>
+			<time class="text-muted" datetime="{{ post.date('c') }}">{{ post.date }}</time>
+		</header>
 
-    <article>
+		{% if post.thumbnail %}
+			<img
+				class="mb-8 w-full rounded-lg"
+				src="{{ post.thumbnail.src('large') }}"
+				srcset="{{ post.thumbnail.srcset }}"
+				sizes="(min-width: 1280px) 1280px, 100vw"
+				width="{{ post.thumbnail.width }}"
+				height="{{ post.thumbnail.height }}"
+				alt="{{ post.thumbnail.alt }}"
+			>
+		{% endif %}
 
-        <header>
-            <h1>{{ post.title }}</h1>
-        </header>
-
-        <section>
-            {{ post.content }}
-        </section>
-
-    </article>
-
+		<div class="prose-content">
+			{{ post.content }}
+		</div>
+	</article>
 {% endblock %}

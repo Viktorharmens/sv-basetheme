@@ -1,0 +1,46 @@
+<header class="relative border-b border-line bg-white">
+	<div class="container flex items-center justify-between gap-6 py-5">
+		<a href="{{ site.url }}" class="text-xl font-bold text-ink" rel="home">{{ site.name }}</a>
+
+		{% if menu.main %}
+			<nav class="js-navigation" aria-label="{{ __('Hoofdmenu', 'sv-basetheme') }}">
+				<button
+					type="button"
+					class="js-navigation-toggle inline-flex items-center gap-2 rounded-md px-3 py-2 font-medium lg:hidden"
+					aria-expanded="false"
+					aria-controls="main-menu"
+				>
+					<span class="js-navigation-label">{{ __('Menu', 'sv-basetheme') }}</span>
+				</button>
+
+				<ul id="main-menu" class="js-navigation-menu absolute inset-x-0 top-full hidden flex-col gap-1 bg-white p-4 shadow-lg data-[open]:flex lg:static lg:flex lg:flex-row lg:gap-6 lg:p-0 lg:shadow-none">
+					{% for item in menu.main.items %}
+						<li class="group relative {{ item.classes|join(' ') }}">
+							<a
+								class="block py-2 font-medium text-ink hover:text-primary {{ item.current ? 'text-primary' }}"
+								href="{{ item.link }}"
+								{{ item.current ? 'aria-current="page"' }}
+								{{ item.is_target_blank ? 'target="_blank" rel="noopener"' }}
+							>{{ item.title }}</a>
+
+							{% if item.children %}
+								<ul class="pl-4 lg:absolute lg:left-0 lg:top-full lg:hidden lg:min-w-48 lg:rounded-md lg:bg-white lg:p-2 lg:shadow-lg lg:group-hover:block lg:group-focus-within:block">
+									{% for child in item.children %}
+										<li>
+											<a
+												class="block py-2 text-ink hover:text-primary"
+												href="{{ child.link }}"
+												{{ child.current ? 'aria-current="page"' }}
+												{{ child.is_target_blank ? 'target="_blank" rel="noopener"' }}
+											>{{ child.title }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endif %}
+	</div>
+</header>

@@ -1,5 +1,4 @@
 node_modules
-build
+dist
+assets/css/tokens.css
 .DS_Store
-*/.DS_Store
-browsersync.config.js

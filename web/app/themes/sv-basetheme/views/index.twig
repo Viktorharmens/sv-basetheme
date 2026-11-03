@@ -1,1 +1,21 @@
-<h1 class="text-7xl">{{ post.title }}</h1>
+{% extends 'base.twig' %}
+
+{% block content %}
+	<section class="container py-16">
+		{% if title %}
+			<h1 class="mb-10 text-4xl font-bold md:text-6xl">{{ title }}</h1>
+		{% endif %}
+
+		{% if posts|length %}
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{% for post in posts %}
+					{% include 'partials/card.twig' %}
+				{% endfor %}
+			</div>
+
+			{% include 'partials/pagination.twig' with { pagination: posts.pagination } %}
+		{% else %}
+			<p class="text-muted">{{ __('Er zijn nog geen berichten.', 'sv-basetheme') }}</p>
+		{% endif %}
+	</section>
+{% endblock %}

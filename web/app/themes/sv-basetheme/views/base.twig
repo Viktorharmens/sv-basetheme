@@ -1,0 +1,26 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+<head>
+	<meta charset="{{ site.charset }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{{ function('wp_head') }}
+</head>
+<body class="{{ body_class }} bg-white font-body text-ink antialiased">
+	{{ function('wp_body_open') }}
+	<a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:shadow" href="#main">{{ __('Naar de inhoud', 'sv-basetheme') }}</a>
+
+	{% block header %}
+		{% include 'partials/header.twig' %}
+	{% endblock %}
+
+	<main id="main" class="{{ main_class }}" tabindex="-1">
+		{% block content %}{% endblock %}
+	</main>
+
+	{% block footer %}
+		{% include 'partials/footer.twig' %}
+	{% endblock %}
+
+	{{ function('wp_footer') }}
+</body>
+</html>

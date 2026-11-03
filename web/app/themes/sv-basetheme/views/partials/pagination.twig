@@ -1,0 +1,19 @@
+{% if pagination.pages|length > 1 %}
+	<nav class="mt-12 flex flex-wrap items-center gap-2" aria-label="{{ __('Paginering', 'sv-basetheme') }}">
+		{% if pagination.prev %}
+			<a class="rounded-md px-3 py-2 hover:bg-surface" href="{{ pagination.prev.link }}">{{ __('Vorige', 'sv-basetheme') }}</a>
+		{% endif %}
+
+		{% for page in pagination.pages %}
+			{% if page.link %}
+				<a class="rounded-md px-3 py-2 hover:bg-surface" href="{{ page.link }}">{{ page.title }}</a>
+			{% else %}
+				<span class="rounded-md px-3 py-2 {{ page.current ? 'bg-primary text-white' }}" {{ page.current ? 'aria-current="page"' }}>{{ page.title }}</span>
+			{% endif %}
+		{% endfor %}
+
+		{% if pagination.next %}
+			<a class="rounded-md px-3 py-2 hover:bg-surface" href="{{ pagination.next.link }}">{{ __('Volgende', 'sv-basetheme') }}</a>
+		{% endif %}
+	</nav>
+{% endif %}

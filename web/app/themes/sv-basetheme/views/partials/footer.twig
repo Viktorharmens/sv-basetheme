@@ -1,0 +1,35 @@
+<footer class="mt-24 bg-surface">
+	<div class="container grid gap-8 py-12 md:grid-cols-3">
+		<div class="flex flex-col gap-2">
+			<span class="font-bold">{{ site.name }}</span>
+			{% if options.footer_text %}
+				<p class="text-muted">{{ options.footer_text|nl2br }}</p>
+			{% endif %}
+		</div>
+
+		{% if options.email or options.phone or options.address %}
+			<address class="flex flex-col gap-1 not-italic text-muted">
+				{% if options.address %}<span>{{ options.address|nl2br }}</span>{% endif %}
+				{% if options.email %}<a class="hover:text-primary" href="mailto:{{ options.email }}">{{ options.email }}</a>{% endif %}
+				{% if options.phone %}<a class="hover:text-primary" href="tel:{{ options.phone|replace({' ': ''}) }}">{{ options.phone }}</a>{% endif %}
+			</address>
+		{% endif %}
+
+		{% if menu.footer %}
+			<nav aria-label="{{ __('Footermenu', 'sv-basetheme') }}">
+				<ul class="flex flex-col gap-1">
+					{% for item in menu.footer.items %}
+						<li><a class="text-muted hover:text-primary" href="{{ item.link }}">{{ item.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</nav>
+		{% endif %}
+	</div>
+
+	<div class="container border-t border-line py-6 text-sm text-muted">
+		© {{ 'now'|date('Y') }} {{ site.name }}
+		{% for social in options.socials %}
+			· <a class="hover:text-primary" href="{{ social.url }}" rel="noopener" target="_blank">{{ social.label }}</a>
+		{% endfor %}
+	</div>
+</footer>
