@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "acf/text-media",
+	"title": "Tekst en afbeelding",
+	"description": "Tekst naast een afbeelding, links of rechts.",
+	"category": "design",
+	"icon": "align-pull-left",
+	"keywords": ["tekst", "afbeelding", "media"],
+	"textdomain": "sv-basetheme",
+	"acf": {
+		"blockVersion": 3,
+		"mode": "preview",
+		"renderCallback": "SV\\Theme\\Blocks::render"
+	},
+	"supports": {
+		"anchor": true,
+		"align": false,
+		"html": false
+	}
+}

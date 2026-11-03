@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": false,
+		"layout": {
+			"contentSize": "1280px",
+			"wideSize": "1536px"
+		},
+		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"palette": [
+				{ "slug": "primary", "name": "Primair", "color": "#904D2A" },
+				{ "slug": "primary-dark", "name": "Primair donker", "color": "#60331C" },
+				{ "slug": "primary-light", "name": "Primair licht", "color": "#FCE6DA" },
+				{ "slug": "ink", "name": "Tekst", "color": "#1D1D1F" },
+				{ "slug": "muted", "name": "Grijs", "color": "#5E5E63" },
+				{ "slug": "line", "name": "Lijn", "color": "#E3E3E8" },
+				{ "slug": "surface", "name": "Vlak", "color": "#F5F5F7" },
+				{ "slug": "white", "name": "Wit", "color": "#FFFFFF" }
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"defaultFontSizes": false,
+			"dropCap": false,
+			"fluid": false,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"fontFamilies": [
+				{ "slug": "body", "name": "Inter", "fontFamily": "\"Inter Variable\", system-ui, sans-serif" },
+				{ "slug": "heading", "name": "Inter (koppen)", "fontFamily": "\"Inter Variable\", system-ui, sans-serif" }
+			],
+			"fontSizes": [
+				{ "slug": "sm", "name": "Klein", "size": "0.875rem" },
+				{ "slug": "base", "name": "Normaal", "size": "1rem" },
+				{ "slug": "lg", "name": "Groot", "size": "1.25rem" },
+				{ "slug": "xl", "name": "Extra groot", "size": "2rem" }
+			]
+		},
+		"spacing": {
+			"blockGap": false,
+			"margin": false,
+			"padding": false,
+			"defaultSpacingSizes": false
+		},
+		"dimensions": {
+			"minHeight": false
+		}
+	}
+}

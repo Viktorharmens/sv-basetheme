@@ -1,0 +1,16 @@
+<article class="group flex flex-col gap-3">
+	{% if post.thumbnail %}
+		<img
+			class="aspect-[4/3] w-full rounded-lg object-cover"
+			src="{{ post.thumbnail.src('medium_large') }}"
+			width="{{ post.thumbnail.width }}"
+			height="{{ post.thumbnail.height }}"
+			alt="{{ post.thumbnail.alt }}"
+			loading="lazy"
+		>
+	{% endif %}
+	<h2 class="text-xl font-bold">
+		<a class="group-hover:text-primary" href="{{ post.link }}">{{ post.title }}</a>
+	</h2>
+	<p class="text-muted">{{ post.excerpt({ words: 24, read_more: false }) }}</p>
+</article>
